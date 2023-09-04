@@ -20,7 +20,7 @@
                 <input type="range" id="vtiSlider" class="vertical-slider" min="0" max="300" step="1" value="150">
                 <span class="rangeVal" id="vtiValue">150</span>
             </div>
-        </div>
+        </div>  
         <div class="column">
             <label for="velocitySlider">MR peak velocity (cm/sec):</label>
             <div id="velocityContainer" class="vertical-slider-container">
@@ -34,16 +34,16 @@
                 <input type="range" id="scaleSlider" class="vertical-slider" min="0" max="100" step="1" value="40">
                 <span class="rangeVal" id="scaleValue">40</span>
             </div>
-        </div>
+        </div>  
         <div class="column">
             <label for="radiusSlider">Radius of the hemisphere (cm):</label>
             <div id="radiusContainer" class="vertical-slider-container">
                 <input type="range" id="radiusSlider" class="vertical-slider" min="0" max="100" step="1" value="50">
                 <span class="rangeVal" id="radiusValue">50</span>
-                <canvas id="hemisphereCanvas" width="200" height="200"></canvas>
-
             </div>
+            <canvas id="hemisphereCanvas" width="200" height="200"></canvas>
         </div>
+
     </div>
     <div>
         <p>The shell area is calculated as 2 * pi * radius squared;</p>
