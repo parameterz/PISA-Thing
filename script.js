@@ -17,8 +17,8 @@ function updateSliders() {
     const velocity = parseFloat(velocitySlider.val());
 
     radiusValue.text(radius/200);
-    scaleValue.text(scale);
-    velocityValue.text(velocity);
+    scaleValue.text(scale); //aliasing velocity
+    velocityValue.text(velocity); //MR peak velocity
 
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -33,6 +33,29 @@ function updateSliders() {
     ctx.fillStyle = "red"; // You can change the color
     ctx.fill();
     ctx.closePath();
+
+    //calculate & update the shell area
+    var shellArea = 2 * Math.PI * Math.pow(radius/200, 2);
+    $('#shellArea').text(shellArea.toFixed(3));
+
+    //calculate & update the shell flow
+    var shellFlow = shellArea * scale; //'scale' is the input slider for aliasing velocity
+    $('#shellFlow').text(shellFlow.toFixed(1));
+
+    //calculate & update the EROA: shell flow / MR peak veloc
+    var eroa = shellFlow / velocity;
+    $('#eroa').text(eroa.toFixed(2));
+
+    //update the severity
+    var severity = '';
+    if (eroa >= 0.40) {
+        severity = 'severe'
+    } else if (eroa > 0.20) {
+        severity = 'moderate'; 
+    } else {
+        severity = 'mild';
+    }
+    $('#severity').text(severity);
 }
 
 // Attach an event handler to all sliders

@@ -1,6 +1,5 @@
-
 .vertical-slider-container {
-    display: inline-block;
+    display: block;
     margin-right: 20px; /* Add margin to separate columns */
     vertical-align: top; /* Align the columns to the top */
 
@@ -22,6 +21,6 @@
 
 /* Create columns for the sliders */
 #radiusContainer, #scaleContainer, #velocityContainer {
-    float: left;
+    /*float: left;*/
     width: 200px; /* Set the width of each column */
 }
