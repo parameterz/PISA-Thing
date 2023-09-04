@@ -47,10 +47,14 @@ function updateSliders() {
     $('#eroa').text(eroa.toFixed(2));
 
     //update the severity
+    //make sure the eroa that is compared is what is displayed (rounded to 2 decimal)
+    eroa = Math.round(100*eroa); // rounds to nearest integer
+    eroa = eroa/100;
+    //console.log(eroa);
     var severity = '';
     if (eroa >= 0.40) {
         severity = 'severe'
-    } else if (eroa > 0.20) {
+    } else if (eroa >= 0.20) {
         severity = 'moderate'; 
     } else {
         severity = 'mild';
