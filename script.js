@@ -1,22 +1,16 @@
 // Get references to the HTML elements
 const canvas = document.getElementById("hemisphereCanvas");
 const ctx = canvas.getContext("2d");
-const radiusInput = $("#radius"); // Use jQuery to select the input element
+const radiusSlider = $("#radiusSlider"); // Use jQuery to select the slider element
+const radiusValue = $("#radiusValue"); // Use jQuery to select the span element
 
-// Update the hemisphere dynamically as the user enters a value
-radiusInput.on("input", drawHemisphere);
+// Update the hemisphere dynamically as the user adjusts the slider
+radiusSlider.on("input", function() {
+    const radius = parseFloat(radiusSlider.val());
+    radiusValue.text(radius/200 + " cm"); // Update the displayed value
 
-function drawHemisphere() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Get the user's input for the radius
-    const radius = parseFloat(radiusInput.val()); // Use val() to get the input value
-
-    if (isNaN(radius) || radius <= 0) {
-        alert("Please enter a valid positive number for the radius.");
-        return;
-    }
 
     // Calculate the center of the canvas
     const centerX = canvas.width / 2;
@@ -28,4 +22,7 @@ function drawHemisphere() {
     ctx.fillStyle = "red"; // You can change the color
     ctx.fill();
     ctx.closePath();
-}
+});
+
+// Initialize the radius value and draw the hemisphere
+radiusSlider.trigger("input");

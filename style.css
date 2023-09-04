@@ -1,0 +1,21 @@
+/* .vertical-slider-container {
+    position: relative;
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    margin-top: 50px; /* Adjust the margin as needed */ 
+
+
+
+.vertical-slider {
+    width: 20px; /* Set the width of the slider */
+    height: 200px; /* Set the height of the slider */
+    writing-mode: bt-lr; /* Vertical writing mode */
+    appearance: slider-vertical;
+}
+
+#radiusValue {
+    display: block;
+    margin-top: 10px; /* Adjust the margin as needed */
+    text-align: left;
+}
