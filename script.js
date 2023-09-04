@@ -22,7 +22,7 @@ function drawHemisphere() {
     // Draw the hemisphere
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, Math.PI, 2*Math.PI, false);
-    ctx.fillStyle = "blue"; // You can change the color
+    ctx.fillStyle = "red"; // You can change the color
     ctx.fill();
     ctx.closePath();
 }
