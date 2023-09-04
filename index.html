@@ -9,9 +9,16 @@
 </head>
 <body>
 
-    <p>This tool was designed to help demonstrate the relationships between MR PISA measurement variables and the calculated EROA.</p>
+    <p>This tool was designed to help demonstrate the relationships between MR PISA measurement variables and the calculated effective regurgitant orifice area (EROA) and regurgitant volume (RVol).</p>
     <p>Adjust these values:</p>
     <div class="column-container">
+        <div class="column">
+            <label for="vti">MR VTI (cm):</label>
+            <div id="vtiContainer" class="vertical-slider-container">
+                <input type="range" id="vtiSlider" class="vertical-slider" min="0" max="300" step="1" value="150">
+                <span class="rangeVal" id="vtiValue">150</span>
+            </div>
+        </div>
         <div class="column">
             <label for="velocity">MR peak velocity (cm/sec):</label>
             <div id="velocityContainer" class="vertical-slider-container">
@@ -29,18 +36,23 @@
         <div class="column">
             <label for="radius">Radius of the hemisphere (cm):</label>
             <div id="radiusContainer" class="vertical-slider-container">
-                <input type="range" id="radiusSlider" class="vertical-slider" min="0" max="200" step="2" value="100">
-                <span class="rangeVal" id="radiusValue">100</span>
+                <input type="range" id="radiusSlider" class="vertical-slider" min="0" max="100" step="1" value="50">
+                <span class="rangeVal" id="radiusValue">50</span>
+                <canvas id="hemisphereCanvas" width="200" height="200"></canvas>
+
             </div>
         </div>
     </div>
     <div>
-        <p>The area of the shell is: <span id="shellArea"></span> cm<sup>2</sup></p>
-        <p>The flow at this shell is: <span id="shellFlow"></span> cm<sup>3</sup></p>
-        <h2>The EROA is: <span id="eroa"></span> cm<sup>2</sup> </h2>
-        <p>(<span id="severity"></span>)</p>
+        <p>The shell area is calculated as 2 * pi * radius squared;</p>
+        <h3>Shell area: <span id="shellArea"></span> cm<sup>2</sup></h3>
+        <p>The shell flow is calculated as shell area * v<sub>a</sub>;</p>
+        <h3>Shell flow: <span id="shellFlow"></span> ml/sec</h3>
+        <p>The EROA is calculated as shell flow &div; MR velocity; ></p>
+        <h2>EROA: <span id="eroa"></span> cm<sup>2</sup> (<span id="severity"></span>)</h2>
+        <p>The regurgitant volume (RVol) is calculated as EROA * MR VTI;</p>
+        <h2>RVol: <span id="rvol"></span> ml (<span id="rvolSeverity"></span>)</h2>
     </div>
-    <canvas id="hemisphereCanvas" width="200" height="200"></canvas>
     
     <script src="script.js"></script>
 </body>

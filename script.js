@@ -5,6 +5,8 @@ const ctx = canvas.getContext("2d");
 // Use jQuery to select the slider elements and their corresponding value spans
 const radiusSlider = $("#radiusSlider");
 const radiusValue = $("#radiusValue");
+const vtiSlider = $('#vtiSlider');
+const vtiValue = $('#vtiValue');
 const scaleSlider = $("#scaleSlider");
 const scaleValue = $("#scaleValue");
 const velocitySlider = $("#velocitySlider");
@@ -12,13 +14,15 @@ const velocityValue = $("#velocityValue");
 
 // Update the hemisphere and other parameters dynamically as the user adjusts the sliders
 function updateSliders() {
-    const radius = parseFloat(radiusSlider.val());
+    const radius = parseFloat(radiusSlider.val()/100);
+    const vti = parseFloat(vtiSlider.val());
     const scale = parseFloat(scaleSlider.val());
     const velocity = parseFloat(velocitySlider.val());
 
-    radiusValue.text(radius/200);
+    radiusValue.text(radius);
     scaleValue.text(scale); //aliasing velocity
     velocityValue.text(velocity); //MR peak velocity
+    vtiValue.text(vti); //MR VTI
 
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -29,13 +33,13 @@ function updateSliders() {
 
     // Draw the hemisphere with adjusted parameters
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius/3, Math.PI, 2*Math.PI, false); //scaling this down
+    ctx.arc(centerX, centerY, radius*50, Math.PI, 2*Math.PI, false); //scaling?
     ctx.fillStyle = "red"; // You can change the color
     ctx.fill();
     ctx.closePath();
 
     //calculate & update the shell area
-    var shellArea = 2 * Math.PI * Math.pow(radius/200, 2);
+    var shellArea = 2 * Math.PI * Math.pow(radius, 2);
     $('#shellArea').text(shellArea.toFixed(3));
 
     //calculate & update the shell flow
@@ -46,10 +50,7 @@ function updateSliders() {
     var eroa = shellFlow / velocity;
     $('#eroa').text(eroa.toFixed(2));
 
-    //update the severity
-    //make sure the eroa that is compared is what is displayed (rounded to 2 decimal)
-    eroa = Math.round(100*eroa); // rounds to nearest integer
-    eroa = eroa/100;
+    //update the EROA severity
     //console.log(eroa);
     var severity = '';
     if (eroa >= 0.40) {
@@ -60,17 +61,33 @@ function updateSliders() {
         severity = 'mild';
     }
     $('#severity').text(severity);
+
+    //calculate the RVol
+    var rvol = eroa * vti;
+    $('#rvol').text(rvol.toFixed(0));
+    //update the rvol severity
+    var rvolSeverity = ''
+    if (rvol >= 60) {
+        rvolSeverity = 'severe';
+    } else if (rvol >= 30) {
+        rvolSeverity = 'moderate';
+    } else {
+        rvolSeverity = 'mild';
+    }
+    $('#rvolSeverity').text(rvolSeverity);
 }
 
 // Attach an event handler to all sliders
 radiusSlider.on("input", updateSliders);
 scaleSlider.on("input", updateSliders);
 velocitySlider.on("input", updateSliders);
+vtiSlider.on("input", updateSliders);
 
 // Initialize the sliders and draw the hemisphere
 radiusSlider.trigger("input");
 scaleSlider.trigger("input");
 velocitySlider.trigger("input");
+vtiSlider.trigger("input");
 
 
 
