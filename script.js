@@ -1,14 +1,17 @@
 // Get references to the HTML elements
 const canvas = document.getElementById("hemisphereCanvas");
 const ctx = canvas.getContext("2d");
-const radiusInput = document.getElementById("radius");
+const radiusInput = $("#radius"); // Use jQuery to select the input element
+
+// Update the hemisphere dynamically as the user enters a value
+radiusInput.on("input", drawHemisphere);
 
 function drawHemisphere() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Get the user's input for the radius
-    const radius = parseFloat(radiusInput.value);
+    const radius = parseFloat(radiusInput.val()); // Use val() to get the input value
 
     if (isNaN(radius) || radius <= 0) {
         alert("Please enter a valid positive number for the radius.");
