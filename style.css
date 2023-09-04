@@ -1,3 +1,14 @@
+.column-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px; /* Add gap between columns */
+}
+
+.column {
+    padding: 10px;
+    border: 1px solid #ccc; /* Add border for visual separation */
+}
+
 .vertical-slider-container {
     display: block;
     margin-right: 20px; /* Add margin to separate columns */
@@ -13,10 +24,10 @@
     appearance: slider-vertical;
 }
 
-#radiusValue {
-    display: block;
-    margin-top: 10px; /* Adjust the margin as needed */
-    text-align: left;
+.rangeVal {
+    display: inline-block;
+    text-align: center;
+    font-size: xx-large;
 }
 
 /* Create columns for the sliders */
