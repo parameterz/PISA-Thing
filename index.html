@@ -8,14 +8,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <p>Adjust the values:</p>
+    <div class="col">
     <label for="radius">Adjust the radius of the hemisphere:</label>
-    <div class="vertical-slider-container">
-        <input type="range" id="radiusSlider" class="vertical-slider" min="1" max="200" step="1" value="100" orient="vertical" />
+    <div id="radiusContainer" class="vertical-slider-container">
+        <input type="range" id="radiusSlider" class="vertical-slider" min="1" max="200" step="1" value="100">
         <span id="radiusValue">100</span>
     </div>
-    <br>
-    <canvas id="hemisphereCanvas" width="400" height="400"></canvas>
+    </div>
+    <div class="col">
+    <label for="scale">Adjust the scale:</label>
+    <div id="scaleContainer" class="vertical-slider-container">
+        <input type="range" id="scaleSlider" class="vertical-slider" min="1" max="10" step="0.1" value="1">
+        <span id="scaleValue">1</span>
+    </div>
+    </div>
+    
+    <div class="col">
+    <label for="velocity">Adjust the velocity:</label>
+    <div id="velocityContainer" class="vertical-slider-container">
+        <input type="range" id="velocitySlider" class="vertical-slider" min="1" max="10" step="0.1" value="1">
+        <span id="velocityValue">1</span>
+    </div>
+    </div>
 
+    <br>
+    <div class="clear"></div>
+    <div>
+    <canvas id="hemisphereCanvas" width="400" height="400"></canvas>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
-/* .vertical-slider-container {
-    position: relative;
+
+.vertical-slider-container {
     display: inline-block;
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    margin-top: 50px; /* Adjust the margin as needed */ 
+    margin-right: 20px; /* Add margin to separate columns */
+    vertical-align: top; /* Align the columns to the top */
 
-
-
+    /* Add additional styling as needed */
+}
+    
 .vertical-slider {
     width: 20px; /* Set the width of the slider */
     height: 200px; /* Set the height of the slider */
@@ -18,4 +18,10 @@
     display: block;
     margin-top: 10px; /* Adjust the margin as needed */
     text-align: left;
+}
+
+/* Create columns for the sliders */
+#radiusContainer, #scaleContainer, #velocityContainer {
+    float: left;
+    width: 200px; /* Set the width of each column */
 }
