@@ -48,7 +48,7 @@ function updateSliders() {
 
     //calculate & update the EROA: shell flow / MR peak veloc
     var eroa = shellFlow / velocity;
-    $('#eroa').text(eroa.toFixed(2));
+    $('#eroa').text(eroa.toFixed(3));
 
     //update the EROA severity
     //console.log(eroa);
@@ -64,7 +64,7 @@ function updateSliders() {
 
     //calculate the RVol
     var rvol = eroa * vti;
-    $('#rvol').text(rvol.toFixed(0));
+    $('#rvol').text(rvol.toFixed(1));
     //update the rvol severity
     var rvolSeverity = ''
     if (rvol >= 60) {
