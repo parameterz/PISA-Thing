@@ -27,11 +27,9 @@
 .rangeVal {
     display: block;
     text-align: left;
-    font-size: 300%;
+    font-size: xx-large;
 }
 
-/* Create columns for the sliders */
-#radiusContainer, #scaleContainer, #velocityContainer {
-    /*float: left;*/
-    width: 200px; /* Set the width of each column */
+label {
+    font-size: x-large;
 }
