@@ -29,7 +29,7 @@ function updateSliders() {
 
     // Draw the hemisphere with adjusted parameters
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius/5, Math.PI, 2*Math.PI, false);
+    ctx.arc(centerX, centerY, radius/3, Math.PI, 2*Math.PI, false); //scaling this down
     ctx.fillStyle = "red"; // You can change the color
     ctx.fill();
     ctx.closePath();
