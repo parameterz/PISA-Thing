@@ -25,9 +25,9 @@
 }
 
 .rangeVal {
-    display: inline-block;
-    text-align: center;
-    font-size: xx-large;
+    display: block;
+    text-align: left;
+    font-size: 300%;
 }
 
 /* Create columns for the sliders */
