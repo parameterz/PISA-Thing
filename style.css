@@ -12,7 +12,6 @@
 .vertical-slider-container {
     display: block;
     margin-right: 20px; /* Add margin to separate columns */
-    vertical-align: top; /* Align the columns to the top */
 
     /* Add additional styling as needed */
 }
