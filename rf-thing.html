@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR RF Thing</title>
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <p>This tool was designed to help demonstrate the relationships between MR volumetric measurement variables and 
+        the calculated regurgitant volume (RVol) & fraction (RF), and the effective regurgitant orifice area (EROA). 
+    </p>
+    <p>Adjust these values:</p>
+    <div class="column-container">
+        <div class="column">
+            <label for="lvotSlider">LVOT Stroke Vol (ml):</label>
+            <div id="lvotContainer" class="vertical-slider-container">
+                <input type="range" id="lvotSlider" class="vertical-slider" min="0" max="200" step="1" value="90">
+                <span class="rangeVal" id="lvotValue">90</span>
+            </div>
+            <p>Calculate this from LVOT diameter and VTI.</p>
+            <p>Total SV: <span class="TSV"></span> ml</p>
+            <p>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</p>
+            <p>RF: <span class="rf"></span> &percnt; (<span class="rfSeverity"></span>)</p>
+            <p>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</p>
+        </div>  
+        <div class="column">
+            <label for="lvedvSlider">LVEDV (ml):</label>
+            <div id="lvedvContainer" class="vertical-slider-container">
+                <input type="range" id="lvedvSlider" class="vertical-slider" min="0" max="600" step="1" value="195">
+                <span class="rangeVal" id="lvedvValue">195</span>
+            </div>
+            <p>Biplane or 3D LV end-diastolic volume.</p>
+            <p>Total SV: <span class="TSV"></span> ml</p>
+            <p>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</p>
+            <p>RF: <span class="rf"></span> &percnt; (<span class="rfSeverity"></span>)</p>
+            <p>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</p>
+        </div>
+        <div class="column">
+            <label for="efSlider">Ejection Fraction ( &percnt;):</label>
+            <div id="efContainer" class="vertical-slider-container">
+                <input type="range" id="efSlider" class="vertical-slider" min="0" max="100" step="1" value="60">
+                <span class="rangeVal" id="efValue">60</span>
+            </div>
+            <p>Biplane or 3D</p>
+            <p>Total SV: <span class="TSV"></span> ml</p>
+            <p>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</p>
+            <p>RF: <span class="rf"></span> &percnt; (<span class="rfSeverity"></span>)</p>
+            <p>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</p>
+        </div>  
+        <div class="column">
+            <label for="vtiSlider">MR VTI (cm):</label>
+            <div id="vtiContainer" class="vertical-slider-container">
+                <input type="range" id="vtiSlider" class="vertical-slider" min="0" max="300" step="1" value="150">
+                <span class="rangeVal" id="vtiValue">150</span>
+            </div>
+            <p>This determines the EROA calculation.</p>
+            <p>Total SV: <span class="TSV"></span> ml</p>
+            <p>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</p>
+            <p>RF: <span class="rf"></span> &percnt; (<span class="rfSeverity"></span>)</p>
+            <p>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</p>
+        </div> 
+    </div>
+    <div>
+        <hr/>
+        <h4>Notes:</h4>
+        <p>The total stroke volume (Total SV) is calculated as LVEDV * EF;</p>
+        <p>The regurgitant volume (RVol) is calculated as Total SV - LVOT SV (i.e., the forward stroke volume);</p>
+        <p>The regurgitant fraction (RF) is calculated as RVol &divide; Total SV;</p>
+        <p>The effective regurgitant orifice area (EROA) is calculated as RVol &divide; MR VTI</p>
+        <p>Scrupulous care must be taken when making these measurements as it is easily possible to create a condition where the RVol (and RF) calculate to a <em>negative</em> value!</p>
+
+            
+
+    </div>
+    
+    <script src="rf-script.js"></script>
+</body>
+</html>
