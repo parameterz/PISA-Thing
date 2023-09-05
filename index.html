@@ -21,6 +21,10 @@
                 <span class="rangeVal" id="vtiValue">150</span>
             </div>
             <p>This determines the RVol calculation.</p>
+            <p>Shell area: <span class="shellArea"></span> cm<sup>2</sup></p>
+            <p>Shell flow: <span class="shellFlow"></span> ml/sec</p>
+            <p>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</p>
+            <h3>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</h3>
         </div>  
         <div class="column">
             <label for="velocitySlider">MR peak velocity (cm/sec):</label>
@@ -29,6 +33,10 @@
                 <span class="rangeVal" id="velocityValue">500</span>
             </div>
             <p>This determines the EROA- which affects the RVol calculations.</p>
+            <p>Shell area: <span class="shellArea"></span> cm<sup>2</sup></p>
+            <p>Shell flow: <span class="shellFlow"></span> ml/sec</p>
+            <h3>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</h3>
+            <h3>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</h3>
         </div>
         <div class="column">
             <label for="scaleSlider">Aliasing velocity ("V<sub>a</sub>"; cm/sec):</label>
@@ -37,6 +45,10 @@
                 <span class="rangeVal" id="scaleValue">40</span>
             </div>
             <p>This determines the shell flow- which affects the EROA & RVol calculations.</p>
+            <p>Shell area: <span class="shellArea"></span> cm<sup>2</sup></p>
+            <h3>Shell flow: <span class="shellFlow"></span> ml/sec</h3>
+            <h3>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</h3>
+            <h3>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</h3>
         </div>  
         <div class="column">
             <label for="radiusSlider">Radius of the hemisphere (cm):</label>
@@ -46,15 +58,14 @@
             </div>
             <canvas id="hemisphereCanvas" width="200" height="200"></canvas>
             <p>This determines the shell area- which affects ...everything!</p>
-
+            <h3>Shell area: <span class="shellArea"></span> cm<sup>2</sup></h3>
+            <h3>Shell flow: <span class="shellFlow"></span> ml/sec</h3>
+            <h3>EROA: <span class="eroa"></span> cm<sup>2</sup> (<span class="severity"></span>)</h3>
+            <h3>RVol: <span class="rvol"></span> ml (<span class="rvolSeverity"></span>)</h3>
         </div>
 
     </div>
     <div>
-        <h3>Shell area: <span id="shellArea"></span> cm<sup>2</sup></h3>
-        <h3>Shell flow: <span id="shellFlow"></span> ml/sec</h3>
-        <h2>EROA: <span id="eroa"></span> cm<sup>2</sup> (<span id="severity"></span>)</h2>
-        <h2>RVol: <span id="rvol"></span> ml (<span id="rvolSeverity"></span>)</h2>
         <hr/>
         <h4>Notes:</h4>
         <p>The shell area is calculated as 2 * pi * radius squared;</p>

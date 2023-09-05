@@ -40,15 +40,15 @@ function updateSliders() {
 
     //calculate & update the shell area
     var shellArea = 2 * Math.PI * Math.pow(radius, 2);
-    $('#shellArea').text(shellArea.toFixed(3));
+    $('.shellArea').text(shellArea.toFixed(3));
 
     //calculate & update the shell flow
     var shellFlow = shellArea * scale; //'scale' is the input slider for aliasing velocity
-    $('#shellFlow').text(shellFlow.toFixed(1));
+    $('.shellFlow').text(shellFlow.toFixed(1));
 
     //calculate & update the EROA: shell flow / MR peak veloc
     var eroa = shellFlow / velocity;
-    $('#eroa').text(eroa.toFixed(3));
+    $('.eroa').text(eroa.toFixed(3));
 
     //update the EROA severity
     //console.log(eroa);
@@ -60,11 +60,11 @@ function updateSliders() {
     } else {
         severity = 'mild';
     }
-    $('#severity').text(severity);
+    $('.severity').text(severity);
 
     //calculate the RVol
     var rvol = eroa * vti;
-    $('#rvol').text(rvol.toFixed(1));
+    $('.rvol').text(rvol.toFixed(1));
     //update the rvol severity
     var rvolSeverity = ''
     if (rvol >= 60) {
@@ -74,7 +74,7 @@ function updateSliders() {
     } else {
         rvolSeverity = 'mild';
     }
-    $('#rvolSeverity').text(rvolSeverity);
+    $('.rvolSeverity').text(rvolSeverity);
 }
 
 // Attach an event handler to all sliders
