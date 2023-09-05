@@ -34,8 +34,10 @@ function updateSliders() {
         rvolSeverity = 'severe';
     } else if (rvol >= 30) {
         rvolSeverity = 'moderate';
-    } else {
+    } else if (rvol >= 0) {
         rvolSeverity = 'mild';
+    } else {
+        rvolSeverity = 'hmm...';//error
     }
     $('.rvolSeverity').text(rvolSeverity);
     
@@ -48,8 +50,10 @@ function updateSliders() {
         rfSeverity = 'severe';
     } else if (rf >= 30){
         rfSeverity = 'moderate';
-    } else {
+    } else if (rf >= 0) {
         rfSeverity = 'mild';
+    } else {
+        rfSeverity = 'hmm...';//error
     }
     $('.rfSeverity').text(rfSeverity);
     //calculate & update the EROA
@@ -62,8 +66,10 @@ function updateSliders() {
         severity = 'severe'
     } else if (eroa >= 0.20) {
         severity = 'moderate'; 
-    } else {
+    } else if (eroa >=0) {
         severity = 'mild';
+    } else {
+        severity = 'hmm...';//error
     }
     $('.severity').text(severity);
 
