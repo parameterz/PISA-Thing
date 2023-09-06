@@ -7,6 +7,7 @@ const radiusSlider = $("#radiusSlider");
 const radiusValue = $("#radiusValue");
 const vtiSlider = $('#vtiSlider');
 const vtiValue = $('#vtiValue');
+const vtiText = $('#vtiText');
 const scaleSlider = $("#scaleSlider");
 const scaleValue = $("#scaleValue");
 const velocitySlider = $("#velocitySlider");
@@ -19,10 +20,10 @@ function updateSliders() {
     const scale = parseFloat(scaleSlider.val()/10);
     const velocity = parseFloat(velocitySlider.val());
 
-    radiusValue.text(radius);
-    scaleValue.text(scale); //aliasing velocity
-    velocityValue.text(velocity); //MR peak velocity
-    vtiValue.text(vti); //MR VTI
+    radiusValue.val(radius);
+    scaleValue.val(scale); //aliasing velocity
+    velocityValue.val(velocity); //MR peak velocity
+    vtiValue.val(vti); //MR VTI
 
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -82,6 +83,9 @@ radiusSlider.on("input", updateSliders);
 scaleSlider.on("input", updateSliders);
 velocitySlider.on("input", updateSliders);
 vtiSlider.on("input", updateSliders);
+
+//allow textboxes to update sliders
+vtiText.change()
 
 // Initialize the sliders and draw the hemisphere
 radiusSlider.trigger("input");
