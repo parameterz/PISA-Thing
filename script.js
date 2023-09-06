@@ -16,7 +16,7 @@ const velocityValue = $("#velocityValue");
 function updateSliders() {
     const radius = parseFloat(radiusSlider.val()/100);
     const vti = parseFloat(vtiSlider.val());
-    const scale = parseFloat(scaleSlider.val());
+    const scale = parseFloat(scaleSlider.val()/10);
     const velocity = parseFloat(velocitySlider.val());
 
     radiusValue.text(radius);
