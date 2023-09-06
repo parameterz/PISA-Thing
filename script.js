@@ -7,7 +7,6 @@ const radiusSlider = $("#radiusSlider");
 const radiusValue = $("#radiusValue");
 const vtiSlider = $('#vtiSlider');
 const vtiValue = $('#vtiValue');
-const vtiText = $('#vtiText');
 const scaleSlider = $("#scaleSlider");
 const scaleValue = $("#scaleValue");
 const velocitySlider = $("#velocitySlider");
